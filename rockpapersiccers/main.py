@@ -1,14 +1,14 @@
 from RPS_game import play, quincy, abbey, kris, mrugesh
 from RPS import player
 
-# Play against Quincy
+# Play Queency
 play(player, quincy, 1000, verbose=True)
 
-# Play against Abbey
+# Play mark
 play(player, abbey, 1000, verbose=True)
 
-# Play against Kris
+# Play don
 play(player, kris, 1000, verbose=True)
 
-# Play against Mrugesh
+# Play marry
 play(player, mrugesh, 1000, verbose=True)
