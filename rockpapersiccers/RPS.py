@@ -1,14 +1,14 @@
 import random
 
 def player(prev_play, opponent_history=[]):
-    # Initialize opponent_history if it's the first game
+    # look if it's the first game
     if prev_play != "":
         opponent_history.append(prev_play)
 
-    # Default move (random)
+    # Default move 
     move = random.choice(["R", "P", "S"])
 
-    # Strategy for Quincy (fixed sequence: R, P, S, R, P, S, ...)
+    # Strategy for Queency
     if len(opponent_history) >= 1:
         if opponent_history[-1] == "R":
             move = "P"  # Paper beats Rock
@@ -17,7 +17,8 @@ def player(prev_play, opponent_history=[]):
         elif opponent_history[-1] == "S":
             move = "R"  # Rock beats Scissors
 
-    # Strategy for Abbey (predicts based on player's last two moves)
+    # Strategy for mark
+    # predicts based on player's last two moves
     if len(opponent_history) >= 2:
         last_two = "".join(opponent_history[-2:])
         if last_two == "RR":
@@ -33,7 +34,8 @@ def player(prev_play, opponent_history=[]):
         elif last_two == "SR":
             move = "P"
 
-    # Strategy for Kris (plays the move that would have beaten the player's last move)
+    # Strategy for don
+    # plays the move that would have beaten the player's last move
     if len(opponent_history) >= 1:
         if opponent_history[-1] == "R":
             move = "P"
@@ -42,7 +44,8 @@ def player(prev_play, opponent_history=[]):
         elif opponent_history[-1] == "S":
             move = "R"
 
-    # Strategy for Mrugesh (plays the move that counters the player's most frequent move)
+    # Strategy for Marry
+    # plays the move that counters the player's most frequent move
     if len(opponent_history) >= 1:
         most_frequent = max(set(opponent_history), key=opponent_history.count)
         if most_frequent == "R":
